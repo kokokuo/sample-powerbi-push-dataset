@@ -1,4 +1,17 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { StatusCodes } from "http-status-codes";
+
+
+export type ReportResult = {
+  id: string,
+  datasetId: string,
+  name: string,
+  webUrl: string,
+  embedUrl: string,
+  isFromPbix: boolean,
+  isOwnedByMe: boolean,
+  reportType: string,
+};
 
 export const getReportsInGroup = async ({
   accessToken,
@@ -19,23 +32,10 @@ export const getReportsInGroup = async ({
   return {
     code: response.status,
     message: response.statusText,
-    data: response.data.value,
-  };
+    data: response.status === StatusCodes.OK ? response.data.value as Array<ReportResult> : []
+  }; 
+  
 };
-
-
-// // export const rebindToRelativeReport = async ({
-// //   accessToken,
-// //   groupId,
-// //   originalDatasetId,
-// //   newDatasetId
-// // }: {
-// //   accessToken: string;
-// //   groupId: string;
-// //   originalDatasetId: string;
-// //   newDatasetId: string;
-// // }) => {
-// }
 
 
 export const rebindNewDatasetToReport = async ({

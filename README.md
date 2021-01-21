@@ -112,7 +112,7 @@ In this step, we could use the `Application ID`, `Client secret` value & `Tenant
 
 Because Power BI apps are integrated with Azure Active Directory to provide your app with secure sign in and authorization. Your app need to uses a token to authenticate to Azure AD and gain access to Power BI resources.
 
-In order to use the `Application ID`, `Client secret` value & `Tenant ID` to authenticate, we could install `adal-node` package which is a  node.js library for node.js applications to authenticate to Azure AD in order to access Azure AD protected web resources.
+In order to use the `Application ID`, `Client secret` value & `Tenant ID` to authenticate, we could install [adal-node](https://www.npmjs.com/package/adal-node) package which is a node.js library for node.js applications to authenticate to Azure AD in order to access Azure AD protected web resources.
 
 ```bash
 $ yarn add adal-node

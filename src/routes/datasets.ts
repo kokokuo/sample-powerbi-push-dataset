@@ -1,8 +1,9 @@
 import * as Router from "koa-router";
 import { PowerBIDatasetService } from "../apps/services";
+import * as Config from "../config.json";
 
 export const datasetRouter = new Router();
-const groupId = "7bfe2581-d6e3-40e7-8b2f-87544d022b44";
+const groupId = Config.groupId;
 
 
 // Create Datasets and add Data Row

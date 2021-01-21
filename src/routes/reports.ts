@@ -1,9 +1,10 @@
 import * as Router from "koa-router";
+import * as Config from "../config.json";
 import { PowerBIReportService } from "../apps/services";
 
 export const reportRouter = new Router();
 
-const groupId = "7bfe2581-d6e3-40e7-8b2f-87544d022b44";
+const groupId = Config.groupId;
 
 // List reports in specific group
 reportRouter.get("/reports", async (ctx) => {

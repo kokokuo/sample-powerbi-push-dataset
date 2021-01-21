@@ -1,28 +1,14 @@
 import * as Router from "koa-router";
-import { TokenResponse } from "adal-node";
-import {
-  getAuthToken,
-  getGroups,
-} from "../powerbi";
-
+import { PowerBIGroupService } from "../apps/services";
 
 export const groupRouter = new Router();
 
+// Show the group
 groupRouter.get("/groups", async (ctx) => {
-    const result = await getAuthToken();
-    if (result.error) {
-      ctx.body = {
-        error: result.error,
-        message: result.errorDescription,
-      };
-    } else {
-      const accessToken = (result as TokenResponse).accessToken;
-      const response = await getGroups(accessToken);
-  
-      ctx.body = {
-        code: response.code,
-        message: response.message,
-        data: response.data,
-      };
-    }
-  });
+  const accessToken = ctx.state.accessToken;
+  const groupService = new PowerBIGroupService(accessToken);
+  const listResult = await groupService.listGroups();
+
+  // response
+  ctx.body = listResult;
+});

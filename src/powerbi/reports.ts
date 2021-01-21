@@ -38,7 +38,7 @@ export const getReportsInGroup = async ({
 };
 
 
-export const rebindNewDatasetToReport = async ({
+export const rebindReportInGroup = async ({
   accessToken,
   groupId,
   reportId,

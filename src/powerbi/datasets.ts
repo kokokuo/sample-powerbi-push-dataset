@@ -1,16 +1,26 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-export type TableColumn = {
+
+export interface TableColumn {
   name: string;
   dataType: string;
-};
+}
 
-export type TableSchema = {
+export interface TableSchema {
   name: string;
   columns: TableColumn[];
 };
 
-export const createDataset = async ({
+export interface TableRow {
+  [key: string]: number | string | boolean;
+};
+
+export interface DataRows {
+  table: string;
+  rows: TableRow[];
+};
+
+export const postDatasetInGroup = async ({
   accessToken,
   groupId,
   data,
@@ -42,16 +52,9 @@ export const createDataset = async ({
   };
 };
 
-export type TableRow = {
-  [key: string]: number | string | boolean;
-};
 
-export type DataRows = {
-  table: string;
-  rows: TableRow[];
-};
 
-export const addRowToDataset = async ({
+export const addRowToDatasetInGroup = async ({
   accessToken,
   groupId,
   datasetId,
@@ -82,7 +85,7 @@ export const addRowToDataset = async ({
   };
 };
 
-export const deleteDataset = async ({
+export const deleteDatasetInGroup = async ({
   accessToken,
   groupId,
   datasetId,

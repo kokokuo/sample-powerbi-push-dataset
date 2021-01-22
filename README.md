@@ -34,29 +34,47 @@ In order to use Service principal, we need use the Azure AD manual app registrat
 
 1. Log into Microsoft Azure and search for **App registrations (應用程式註冊)** and click it.
 2. Click **New registration**.
-![azure-application-registration](/docs/azure-application-registration.png)
+<p align="center">
+  <img src="/docs/azure-application-registration.png?raw=true" width="640px">
+</p>
+
 
 3. Fill in the required information and click Register.
 * Name - Enter a name for your application
 * Supported account types - Select supported account types
 * (Optional) Redirect URI - Enter a URI if needed
-![azure-create-application](/docs/azure-create-application.png)
+<p align="center">
+  <img src="/docs/azure-create-application.png?raw=true" width="640px">
+</p>
+
 
 4.After registering, the Application ID is available from the Overview tab. Copy and save the `Application ID` & `Tenant ID` for later use.
 
-![azure-application-created](/docs/azure-application-created.png)
+<p align="center">
+  <img src="/docs/azure-application-created.png?raw=true" width="640px">
+</p>
+
 
 5.Click the **Certificates & secrets** tab and click **New client secret**
 
-![azure-choose-credentials-and-secret](/docs/azure-choose-credentials-and-secret.png)
+
+<p align="center">
+  <img src="/docs/azure-choose-credentials-and-secret.png?raw=true">
+</p>
+
+
 
 6.In the Add a client secret window, enter a description, specify when you want the client secret to expire (Here Choose **Never**), and click Add.
 
-![azure-create-secret-choose-never](/docs/azure-create-secret-choose-never.png)
+<p align="center">
+  <img src="/docs/azure-create-secret-choose-never.png?raw=true" width="320px">
+</p>
 
 7.Copy and save the `Client secret` value.
 
-![azure-create-application-secret](/docs/azure-create-application-secret.png)
+<p align="center">
+  <img src="/docs/azure-create-application-secret.png?raw=true" width="640px">
+</p>
 
 <br/>
 
@@ -65,24 +83,38 @@ Now, service principal doesn't have access to any of your Power BI content and A
 
 1.On the Active Directory page, select Groups and then select New group.
 
-![azure-click-ad-service](/docs/azure-click-ad-service.png)
 
-![azure-create-ad-group](/docs/azure-create-ad-group.png)
+<p align="center">
+  <img src="/docs/azure-click-ad-service.png?raw=true" width="640px">
+</p>
+
+<p align="center">
+  <img src="/docs/azure-create-ad-group.png?raw=true" width="640px">
+</p>
+
 
 2.The New Group pane will appear and you must fill out the required information.
 Select the group type **Security Group** and type Group Name, then **select our Application** created just now to be the member.
-![azure-create-ad-security-group](/docs/azure-create-ad-security-group.png)
+
+<p align="center">
+  <img src="/docs/azure-create-ad-security-group.png?raw=true">
+</p>
 
 <br/>
 
 #### 4. Enable the Power BI service admin settings
 For an Azure AD app to be able to access the Power BI content and APIs, a Power BI admin needs to enable service principal access in the Power BI admin portal.
 
-![powerbi-enter-administration-portal](/docs/powerbi-enter-administration-portal.png)
+<p align="center">
+  <img src="/docs/powerbi-enter-administration-portal.png?raw=true" width="320px">
+</p>
+
 
 Add the security group you created in Azure AD, to the specific security group section in the **Developer settings**.
 
-![powerbi-administration-portal-developer-setting-allow-service-principal-powerbi-api](/docs/powerbi-administration-portal-developer-setting-allow-service-principal-powerbi-api.png)
+<p align="center">
+  <img src="/docs/powerbi-administration-portal-developer-setting-allow-service-principal-powerbi-api.png?raw=true">
+</p>
 
 <br/>
 
@@ -91,13 +123,18 @@ To enable your Azure AD app access artifacts such as reports, dashboards and dat
 
 1.Scroll to the workspace you want to enable access for, and from the More menu, select **Workspace access**.
 
-![powerbi-workspace-access](/docs/powerbi-workspace-access.png)
+<p align="center">
+  <img src="/docs/powerbi-workspace-access.png?raw=true" width="640px">
+</p>
+
 
 2.In the Access pane, text box, add one of the following:
     - Your service principal. The name of your service principal is the Display name of your Azure AD app, as it appears in your Azure AD app's overview tab.
     - The security group that includes your service principal.
 
-![powerbi-workspace-access-select-service-principal-or-group](/docs/powerbi-workspace-access-select-service-principal-or-group.png)
+<p align="center">
+  <img src="/docs/powerbi-workspace-access-select-service-principal-or-group.png?raw=true" width="480px">
+</p>
 
 From the drop-down menu, select **Member** or **Admin**.
 
@@ -183,7 +220,9 @@ But the Sample Power BI Push Dataset project has completed the flow of getting a
 
 You could check the **group workspace Id** from your group workspace URL link:
 
-![powerbi-group-workspace-link](docs/powerbi-group-workspace-link.png)
+<p align="center">
+  <img src="/docs/powerbi-group-workspace-link.png?raw=true" width="640px">
+</p>
 
 It's would be a **UUID** string
 

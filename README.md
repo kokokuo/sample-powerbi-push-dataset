@@ -1,7 +1,5 @@
 # Sample Power BI Push Dataset
 
----
-
 This a sample code for using [Power BI Rest API](https://docs.microsoft.com/en-us/rest/api/power-bi/) to implement Power BI push datasets feature through [Service Principal](https://docs.microsoft.com/en-us/power-bi/developer/embedded/embed-service-principal) authentication method.
 
 # Background for using Power BI Rest API
@@ -142,7 +140,7 @@ From the drop-down menu, select **Member** or **Admin**.
 
 Finish!
 
-## 2. Get an authentication access token
+## 2. Get an authentication access token (Could ignore if use the sample project)
 Now, we could use the `Application ID`, `Client secret` value & `Tenant ID` to authenticate and get access Token for accessing Power BI Rest API.
 
 In this step, we could use the `Application ID`, `Client secret` value & `Tenant ID` before previous step we got, to get an authentication access token.
@@ -207,7 +205,7 @@ app.get("/getAccessToken", async ctx => {
 ```
 
 ## 3. Setup the project's `config.json` file
-But the Sample Power BI Push Dataset project has completed the flow of getting access token, so you just need to type `Application ID`, `Client secret` value & `Tenant ID` to the `src/config.json`:
+But the Sample Power BI Push Dataset project has completed the flow of getting access token, so you just need to clone the project and type `Application ID`, `Client secret` value & `Tenant ID` to the `src/config.json` and skip previous step *Get an authentication access token*:
 
 ```json
 {
